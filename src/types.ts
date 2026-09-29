@@ -19,7 +19,8 @@ export interface EmailAddress {
 export interface Profile {
   name: string
   initials: string
-  role: string
+  /** The highlighted line under your name on the home screen */
+  headline: string
   tagline: string
   /** Status chip on the home screen. Leave empty to hide it. */
   availability: string

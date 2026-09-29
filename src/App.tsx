@@ -16,7 +16,7 @@ export default function App() {
   useEffect(() => {
     document.title = active
       ? `${planetById(active).title} · ${profile.name}`
-      : `${profile.name} · ${profile.role}`
+      : `${profile.name} · Portfolio`
   }, [active])
 
   return (

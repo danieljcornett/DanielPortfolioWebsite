@@ -20,7 +20,7 @@ export function HomeHero({ hidden }: { hidden: boolean }) {
         <h1 id="hero-title" className={styles.title}>
           {profile.name}
         </h1>
-        <p className={styles.role}>{profile.role}</p>
+        <p className={styles.headline}>{profile.headline}</p>
         <p className={styles.tagline}>{profile.tagline}</p>
 
         <div className={styles.actions}>

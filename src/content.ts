@@ -17,10 +17,10 @@ import type {
 export const profile: Profile = {
   name: 'Daniel Cornett',
   initials: 'DC',
-  role: 'Software Engineer & Data Analyst',
+  headline: 'Looking for new grad / entry-level opportunities',
   tagline:
     'Computer Science & Engineering student at the University of Iowa who builds machine learning apps and digs into data.',
-  availability: 'Graduating May 2027 · Open to opportunities',
+  availability: 'Graduating May 2027',
   emails: [
     { label: 'School', address: 'daniel-cornett@uiowa.edu' },
     { label: 'Personal', address: 'daniel12cornett@gmail.com' },
@@ -195,6 +195,6 @@ export const contact: ContactContent = {
   intro: 'The quickest ways to reach me.',
   heading: "Let's build something together.",
   message:
-    'Hiring for a software engineering or data role, or want to talk about a project? Email me at either address below, or connect on LinkedIn.',
+    'Hiring for a new grad or entry-level role, or want to talk about a project? Email me at either address below, or connect on LinkedIn.',
   responseNote: 'I usually reply within a day or two.',
 }
