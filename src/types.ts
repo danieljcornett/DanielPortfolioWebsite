@@ -1,6 +1,6 @@
 export type SectionId = 'about' | 'projects' | 'skills' | 'education' | 'contact'
 
-export type SocialIcon = 'github' | 'linkedin' | 'email' | 'website'
+export type SocialIcon = 'github' | 'linkedin' | 'website'
 
 export interface SocialLink {
   label: string
@@ -10,6 +10,12 @@ export interface SocialLink {
   handle: string
 }
 
+export interface EmailAddress {
+  /** Shown above the address, e.g. "School" or "Personal" */
+  label: string
+  address: string
+}
+
 export interface Profile {
   name: string
   initials: string
@@ -17,7 +23,8 @@ export interface Profile {
   tagline: string
   /** Status chip on the home screen. Leave empty to hide it. */
   availability: string
-  email: string
+  /** Listed on the Contact planet. The first one is also the home screen's mail button. */
+  emails: EmailAddress[]
   /** Put the file in /public and point at it, e.g. '/resume.pdf'. Leave empty to hide the button. */
   resumeUrl: string
   /** Put the file in /public and point at it, e.g. '/me.jpg'. Leave empty to show a placeholder. */

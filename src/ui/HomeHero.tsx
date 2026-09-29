@@ -1,4 +1,4 @@
-import { ArrowRight, FileText, MousePointerClick } from 'lucide-react'
+import { ArrowRight, FileText, Mail, MousePointerClick } from 'lucide-react'
 import { profile } from '../content'
 import { sectionHref } from '../lib/router'
 import styles from './HomeHero.module.css'
@@ -6,6 +6,8 @@ import { SocialGlyph } from './icons'
 
 /** The sun's overlay: who you are, shown on the zoomed-out view. */
 export function HomeHero({ hidden }: { hidden: boolean }) {
+  const [primaryEmail] = profile.emails
+
   return (
     <section className={styles.hero} aria-labelledby="hero-title" data-hidden={hidden} inert={hidden}>
       <div className={styles.intro}>
@@ -34,16 +36,18 @@ export function HomeHero({ hidden }: { hidden: boolean }) {
         <ul className={styles.socials}>
           {profile.socials.map((social) => (
             <li key={social.label}>
-              <a
-                className="icon-button"
-                href={social.href}
-                aria-label={social.label}
-                {...(social.icon === 'email' ? {} : { target: '_blank', rel: 'noreferrer' })}
-              >
+              <a className="icon-button" href={social.href} aria-label={social.label} target="_blank" rel="noreferrer">
                 <SocialGlyph icon={social.icon} size={18} />
               </a>
             </li>
           ))}
+          {primaryEmail && (
+            <li>
+              <a className="icon-button" href={`mailto:${primaryEmail.address}`} aria-label={`Email ${primaryEmail.address}`}>
+                <Mail size={18} aria-hidden="true" />
+              </a>
+            </li>
+          )}
           {profile.resumeUrl && (
             <li>
               <a className="icon-button" href={profile.resumeUrl} aria-label="Résumé" target="_blank" rel="noreferrer">

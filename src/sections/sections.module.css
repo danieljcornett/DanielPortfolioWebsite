@@ -430,10 +430,50 @@
   font-size: 1.0625rem;
 }
 
-.emailRow {
-  display: flex;
-  flex-wrap: wrap;
+.emails {
+  display: grid;
   gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.emailCard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 8px 8px;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.emailLink {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.emailLink .socialIcon {
+  color: var(--accent);
+}
+
+.emailAddress {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  overflow-wrap: break-word;
+  transition: color 0.2s;
+}
+
+.emailLink:hover .emailAddress {
+  color: var(--accent);
 }
 
 .socialCards {

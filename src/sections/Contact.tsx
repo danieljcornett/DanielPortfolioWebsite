@@ -5,24 +5,23 @@ import { SocialGlyph } from '../ui/icons'
 import styles from './sections.module.css'
 
 export function Contact() {
-  const [copied, setCopied] = useState(false)
+  // The address that was just copied, so its button can show a check mark for a moment.
+  const [copied, setCopied] = useState<string | null>(null)
 
   useEffect(() => {
     if (!copied) return
-    const timer = setTimeout(() => setCopied(false), 2000)
+    const timer = setTimeout(() => setCopied(null), 2000)
     return () => clearTimeout(timer)
   }, [copied])
 
-  const copyEmail = async () => {
+  const copyEmail = async (address: string) => {
     try {
-      await navigator.clipboard.writeText(profile.email)
-      setCopied(true)
+      await navigator.clipboard.writeText(address)
+      setCopied(address)
     } catch {
-      // Clipboard access can be blocked; the mailto button still works.
+      // Clipboard access can be blocked; the mailto link still works.
     }
   }
-
-  const links = profile.socials.filter((social) => social.icon !== 'email')
 
   return (
     <>
@@ -31,20 +30,48 @@ export function Contact() {
         <p className={styles.lead}>{contact.message}</p>
       </div>
 
-      <div className={styles.emailRow}>
-        <a className="button button-accent" href={`mailto:${profile.email}`}>
-          <Mail size={18} aria-hidden="true" />
-          {profile.email}
-        </a>
-        <button type="button" className="button" onClick={copyEmail}>
-          {copied ? <Check size={18} aria-hidden="true" /> : <Copy size={18} aria-hidden="true" />}
-          <span aria-live="polite">{copied ? 'Copied' : 'Copy email'}</span>
-        </button>
-      </div>
+      <ul className={styles.emails}>
+        {profile.emails.map((email) => {
+          // On narrow screens, wrap long addresses before the "@" rather than mid-word.
+          const at = email.address.lastIndexOf('@')
+          return (
+            <li key={email.address} className={styles.emailCard}>
+              <a className={styles.emailLink} href={`mailto:${email.address}`}>
+                <span className={styles.socialIcon}>
+                  <Mail size={20} aria-hidden="true" />
+                </span>
+                <span className={styles.socialText}>
+                  <strong>{email.label}</strong>
+                  <span className={styles.emailAddress}>
+                    {email.address.slice(0, at)}
+                    <wbr />
+                    {email.address.slice(at)}
+                  </span>
+                </span>
+              </a>
+              <button
+                type="button"
+                className="icon-button"
+                onClick={() => copyEmail(email.address)}
+                aria-label={`Copy ${email.label.toLowerCase()} email address`}
+              >
+                {copied === email.address ? (
+                  <Check size={18} aria-hidden="true" />
+                ) : (
+                  <Copy size={18} aria-hidden="true" />
+                )}
+              </button>
+            </li>
+          )
+        })}
+      </ul>
+      <p className="sr-only" aria-live="polite">
+        {copied ? `Copied ${copied}` : ''}
+      </p>
 
-      {links.length > 0 && (
+      {profile.socials.length > 0 && (
         <ul className={styles.socialCards}>
-          {links.map((social) => (
+          {profile.socials.map((social) => (
             <li key={social.label}>
               <a className={styles.socialCard} href={social.href} target="_blank" rel="noreferrer">
                 <span className={styles.socialIcon}>

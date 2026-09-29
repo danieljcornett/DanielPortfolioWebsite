@@ -1,4 +1,4 @@
-import { Globe, Mail } from 'lucide-react'
+import { Globe } from 'lucide-react'
 import type { SVGProps } from 'react'
 import type { SocialIcon } from '../types'
 
@@ -26,8 +26,6 @@ export function SocialGlyph({ icon, size = 20 }: { icon: SocialIcon; size?: numb
       return <GithubIcon width={size} height={size} />
     case 'linkedin':
       return <LinkedinIcon width={size} height={size} />
-    case 'email':
-      return <Mail size={size} aria-hidden="true" />
     default:
       return <Globe size={size} aria-hidden="true" />
   }

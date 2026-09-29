@@ -21,9 +21,13 @@ export const profile: Profile = {
   tagline:
     'Computer Science & Engineering student at the University of Iowa who builds machine learning apps and digs into data.',
   availability: 'Graduating May 2027 · Open to opportunities',
-  email: 'daniel-cornett@uiowa.edu',
+  emails: [
+    { label: 'School', address: 'daniel-cornett@uiowa.edu' },
+    { label: 'Personal', address: 'daniel12cornett@gmail.com' },
+  ],
   resumeUrl: '',
   photo: '',
+  // GitHub isn't on the résumé; add { label: 'GitHub', href: 'https://github.com/…', icon: 'github', handle: '@…' }.
   socials: [
     {
       label: 'LinkedIn',
@@ -31,7 +35,6 @@ export const profile: Profile = {
       icon: 'linkedin',
       handle: 'in/daniel-cornett-742410299',
     },
-    { label: 'Email', href: 'mailto:daniel-cornett@uiowa.edu', icon: 'email', handle: 'daniel-cornett@uiowa.edu' },
   ],
 }
 
@@ -178,6 +181,6 @@ export const contact: ContactContent = {
   intro: 'The quickest ways to reach me.',
   heading: "Let's build something together.",
   message:
-    'Hiring for a role, have a project in mind, or just want to talk shop? A short note about what you have in mind is plenty.',
+    'Hiring for a software engineering or data role, or want to talk about a project? Email me at either address below, or connect on LinkedIn.',
   responseNote: 'I usually reply within a day or two.',
 }
