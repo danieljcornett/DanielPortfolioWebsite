@@ -27,8 +27,8 @@ export const profile: Profile = {
   ],
   resumeUrl: '',
   photo: '',
-  // GitHub isn't on the résumé; add { label: 'GitHub', href: 'https://github.com/…', icon: 'github', handle: '@…' }.
   socials: [
+    { label: 'GitHub', href: 'https://github.com/danieljcornett', icon: 'github', handle: '@danieljcornett' },
     {
       label: 'LinkedIn',
       href: 'https://www.linkedin.com/in/daniel-cornett-742410299',
