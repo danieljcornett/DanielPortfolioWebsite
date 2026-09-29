@@ -88,8 +88,7 @@ export const about: AboutContent = {
         'Led a volunteer project to build and install a stage for the McHenry County Fair, coordinating a team of 10: planned logistics, secured funding, and worked with local officials to get it approved. Earned 21+ merit badges.',
     },
   ],
-  // Hobbies aren't on the résumé yet. Add a few (e.g. 'Hiking') to show an "Outside of code" group.
-  interests: [],
+  interests: ['Playing basketball', 'Watching the NFL (Bears fan)', 'Lifting weights', 'True crime documentaries'],
 }
 
 /* ── Planet 2: Projects ─────────────────────────────────────────────── */
@@ -109,7 +108,10 @@ export const projects: ProjectsContent = {
         'Used AI-assisted development (Cursor, Claude Code) to accelerate the web app build',
       ],
       tech: ['Python', 'Scikit-Learn', 'NLTK', 'FastAPI', 'React', 'Tailwind CSS', 'Vercel'],
-      // Add repoUrl and liveUrl (the Vercel address) to show Code and Live demo buttons.
+      // This is a deployment URL, which Vercel puts behind a login by default. Swap in the project's
+      // production domain (Vercel → project → Domains) or turn off Deployment Protection.
+      liveUrl: 'https://phishing-detection-system-using-machine-learning-5esgrh7tv.vercel.app/',
+      // Add repoUrl to show a Code button.
     },
     {
       title: 'Marketing Channel Performance & Budget Reallocation Analysis',
