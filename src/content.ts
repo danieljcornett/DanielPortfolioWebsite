@@ -127,12 +127,16 @@ export const projects: ProjectsContent = {
 
 export const skills: SkillsContent = {
   intro: 'The languages, frameworks, and tools I use most.',
+  // From the résumé's two skill lines, regrouped; Excel, Tailwind CSS, Vercel, and Cursor come from
+  // the experience and project bullets.
   groups: [
-    { name: 'Languages', skills: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL'] },
-    { name: 'Frontend', skills: ['React', 'Next.js', 'HTML & CSS', 'Three.js'] },
-    { name: 'Backend', skills: ['Node.js', 'Express', 'FastAPI', 'PostgreSQL', 'Redis'] },
-    { name: 'Tools & cloud', skills: ['Git', 'Docker', 'AWS', 'Linux', 'CI/CD'] },
-    { name: 'Currently learning', skills: ['Skill one', 'Skill two'] },
+    { name: 'Languages', skills: ['Python', 'SQL', 'Java', 'C++'] },
+    {
+      name: 'Data & machine learning',
+      skills: ['Pandas', 'Scikit-Learn', 'NLTK', 'Matplotlib', 'Seaborn', 'Jupyter Notebooks', 'Excel'],
+    },
+    { name: 'Web & app development', skills: ['FastAPI', 'React', 'Tailwind CSS', 'JavaFX'] },
+    { name: 'Tools & platforms', skills: ['GitHub', 'Vercel', 'Claude Code', 'Cursor'] },
   ],
 }
 
