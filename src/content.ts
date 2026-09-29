@@ -15,38 +15,78 @@ import type {
 /* ── The sun: home screen ───────────────────────────────────────────── */
 
 export const profile: Profile = {
-  name: 'Your Name',
-  initials: 'YN',
-  role: 'Software Engineer',
-  tagline: 'One sentence about what you build and who it helps.',
-  location: 'City, State',
-  availability: 'Open to new opportunities',
-  email: 'you@example.com',
+  name: 'Daniel Cornett',
+  initials: 'DC',
+  role: 'Software Engineer & Data Analyst',
+  tagline:
+    'Computer Science & Engineering student at the University of Iowa who builds machine learning apps and digs into data.',
+  availability: 'Graduating May 2027 · Open to opportunities',
+  email: 'daniel-cornett@uiowa.edu',
   resumeUrl: '',
   photo: '',
   socials: [
-    { label: 'GitHub', href: 'https://github.com/your-username', icon: 'github', handle: '@your-username' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-username', icon: 'linkedin', handle: 'in/your-username' },
-    { label: 'Email', href: 'mailto:you@example.com', icon: 'email', handle: 'you@example.com' },
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/daniel-cornett-742410299',
+      icon: 'linkedin',
+      handle: 'in/daniel-cornett-742410299',
+    },
+    { label: 'Email', href: 'mailto:daniel-cornett@uiowa.edu', icon: 'email', handle: 'daniel-cornett@uiowa.edu' },
   ],
 }
 
 /* ── Planet 1: About ────────────────────────────────────────────────── */
 
 export const about: AboutContent = {
-  intro: 'Who I am, how I got into software, and what I care about.',
+  intro: 'A little about me, where I have worked, and what I do outside of class.',
   bio: [
-    'Paragraph one: a quick introduction. Who you are, where you are based, and what you work on today.',
-    'Paragraph two: your path into engineering. The class, project, or job that got you hooked, and what has kept you building since.',
-    'Paragraph three: what you want to do next and the kind of team where you do your best work.',
+    "I'm a Computer Science & Engineering student in the University of Iowa's College of Engineering, minoring in Artificial Intelligence and graduating in May 2027.",
+    'I like building software that puts machine learning to work. My phishing detection system scores every link in a pasted email and shows which parts of each URL drove its prediction. I also dig into data to see what is working, like an analysis of marketing campaigns across five channels that recommended where the budget should go.',
+    "Outside of class I'm an executive in the Generative AI Club's consulting branch, where I help plan hackathons and maintain the club website. I spent almost two years as a bookkeeper and IT assistant at OAT Payroll & Tax Services, and I'm an Eagle Scout.",
   ],
   facts: [
-    { label: 'Based in', value: 'City, State' },
-    { label: 'Currently', value: 'Role at Company' },
-    { label: 'Focus', value: 'Full-stack web development' },
-    { label: 'Open to', value: 'Full-time roles' },
+    { label: 'Studying', value: 'B.S. Computer Science & Engineering' },
+    { label: 'Minor', value: 'Artificial Intelligence' },
+    { label: 'Graduating', value: 'May 2027' },
+    { label: 'Focus', value: 'Software engineering & data analysis' },
   ],
-  interests: ['Interest one', 'Interest two', 'Interest three', 'Interest four'],
+  experience: [
+    {
+      title: 'Bookkeeper and IT Assistant',
+      company: 'OAT Payroll & Tax Services',
+      location: 'Crystal Lake, IL',
+      dates: 'Dec 2024 – Aug 2026',
+      highlights: [
+        'Performed bank reconciliations for small business accounts to ensure accurate financial reporting',
+        'Managed and organized datasets in Excel, ensuring accuracy and consistency across large volumes of information',
+        'Resolved computer, printer, and server issues to maintain day-to-day operations',
+      ],
+    },
+  ],
+  activities: [
+    {
+      name: 'Generative AI Club',
+      role: 'Executive, Consulting Branch',
+      description:
+        'Plan and organize hackathons, develop event concepts, maintain and update the club website, analyze meeting data to track participation, and explore new AI tools to share with members.',
+    },
+    {
+      name: 'Sigma Phi Epsilon Fraternity',
+      role: 'Member',
+      dates: 'Aug 2023 – Present',
+      description:
+        'Served on the Recruitment Committee, planning and organizing rush events for 50+ attendees, and on the Apparel Committee, overseeing design selection, vendor coordination, and sales.',
+    },
+    {
+      name: 'Boy Scouts of America',
+      role: 'Eagle Scout',
+      dates: 'Sep 2023 – Present',
+      description:
+        'Led a volunteer project to build and install a stage for the McHenry County Fair, coordinating a team of 10: planned logistics, secured funding, and worked with local officials to get it approved. Earned 21+ merit badges.',
+    },
+  ],
+  // Hobbies aren't on the résumé yet. Add a few (e.g. 'Hiking') to show an "Outside of code" group.
+  interests: [],
 }
 
 /* ── Planet 2: Projects ─────────────────────────────────────────────── */

@@ -5,9 +5,9 @@ import styles from './sections.module.css'
 export function Education() {
   return (
     <>
-      <ol className={styles.timeline}>
+      <ol className={styles.entries}>
         {education.degrees.map((degree) => (
-          <li key={`${degree.school}-${degree.degree}`} className={styles.degree}>
+          <li key={`${degree.school}-${degree.degree}`} className={styles.entry}>
             <p className={styles.meta}>
               <span>
                 {degree.start} – {degree.end}

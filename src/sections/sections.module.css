@@ -254,9 +254,9 @@
   background: var(--surface);
 }
 
-/* ── Education ── */
+/* ── Entry cards: jobs (About) and degrees (Education) ── */
 
-.timeline {
+.entries {
   display: grid;
   gap: 16px;
   margin: 0;
@@ -264,7 +264,7 @@
   list-style: none;
 }
 
-.degree {
+.entry {
   position: relative;
   display: grid;
   gap: 8px;
@@ -274,7 +274,7 @@
   background: var(--surface);
 }
 
-.degree::before {
+.entry::before {
   content: '';
   position: absolute;
   left: 0;
@@ -284,6 +284,66 @@
   border-radius: 0 3px 3px 0;
   background: var(--accent);
 }
+
+.entry .cardTitle {
+  margin-top: 2px;
+}
+
+.entry .bullets {
+  margin-top: 6px;
+}
+
+/* ── About: leadership & activities ── */
+
+.activities {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.activity {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.activityHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 12px;
+}
+
+.activityName {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.activityDates {
+  color: var(--text-faint);
+  font: 500 12px/1.4 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.activityRole {
+  color: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.activity .muted {
+  margin-top: 4px;
+  line-height: 1.55;
+}
+
+/* ── Education ── */
 
 .iconLine {
   display: flex;
@@ -299,10 +359,6 @@
 
 .subsection {
   margin-top: 10px;
-}
-
-.degree .bullets {
-  margin-top: 6px;
 }
 
 .certs {

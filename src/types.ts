@@ -15,7 +15,6 @@ export interface Profile {
   initials: string
   role: string
   tagline: string
-  location: string
   /** Status chip on the home screen. Leave empty to hide it. */
   availability: string
   email: string
@@ -31,10 +30,30 @@ export interface Fact {
   value: string
 }
 
+export interface Job {
+  title: string
+  company: string
+  location?: string
+  /** Free text, e.g. "Dec 2024 – Aug 2026" */
+  dates: string
+  highlights: string[]
+}
+
+export interface Activity {
+  name: string
+  role: string
+  /** Free text, e.g. "Aug 2023 – Present". Optional. */
+  dates?: string
+  description: string
+}
+
 export interface AboutContent {
   intro: string
   bio: string[]
   facts: Fact[]
+  experience: Job[]
+  activities: Activity[]
+  /** Hobbies shown as chips under "Outside of code". Leave empty to hide the group. */
   interests: string[]
 }
 
