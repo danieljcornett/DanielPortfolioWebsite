@@ -371,7 +371,7 @@
 
 .cert {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   padding: 14px 16px;
   border-radius: var(--radius);
@@ -397,6 +397,23 @@
 
 .certName {
   font-weight: 600;
+}
+
+.certText .muted {
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+.certIssued {
+  margin-top: 6px;
+  color: var(--text-faint);
+  font: 500 12px/1.4 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cert .button {
+  align-self: center;
 }
 
 /* ── Contact ── */

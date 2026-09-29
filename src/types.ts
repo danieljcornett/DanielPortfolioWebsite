@@ -91,18 +91,23 @@ export interface SkillsContent {
 export interface Degree {
   school: string
   degree: string
+  /** Optional, e.g. "Artificial Intelligence" */
+  minor?: string
   location: string
-  start: string
-  end: string
+  /** Free text, e.g. "2023 – 2027" or "Expected May 2027" */
+  dates: string
   gpa?: string
+  /** Leave empty to hide the "Relevant coursework" group */
   coursework: string[]
   honors: string[]
 }
 
 export interface Certification {
   name: string
-  issuer: string
-  date: string
+  /** One line on what it covers */
+  description?: string
+  issuer?: string
+  date?: string
   credentialUrl?: string
 }
 

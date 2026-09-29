@@ -143,29 +143,32 @@ export const skills: SkillsContent = {
 /* ── Planet 4: Education & certifications ───────────────────────────── */
 
 export const education: EducationContent = {
-  intro: 'Where I studied and the certifications I have earned.',
+  intro: 'Where I study and the certifications I have earned.',
   degrees: [
     {
-      school: 'University Name',
-      degree: 'B.S. in Computer Science',
-      location: 'City, State',
-      start: '2022',
-      end: '2026',
-      gpa: '3.x / 4.0',
-      coursework: [
-        'Data Structures',
-        'Algorithms',
-        'Operating Systems',
-        'Databases',
-        'Computer Networks',
-        'Software Engineering',
-      ],
-      honors: ["Dean's List, an honors program, or a club you led"],
+      school: 'University of Iowa, College of Engineering',
+      degree: 'B.S. in Computer Science & Engineering',
+      minor: 'Artificial Intelligence',
+      location: 'Iowa City, IA',
+      dates: 'Expected May 2027',
+      // Not on the résumé yet: add a GPA, relevant courses, or honors and they show up automatically.
+      coursework: [],
+      honors: [],
     },
   ],
   certifications: [
-    { name: 'Certification Name', issuer: 'Issuing Organization', date: '2025', credentialUrl: 'https://example.com' },
-    { name: 'Another Certification', issuer: 'Issuing Organization', date: '2024' },
+    {
+      name: 'Python and Data Certification',
+      description: 'Professional-level data analysis using Python and Jupyter Notebooks',
+    },
+    {
+      name: 'AI Professional Skills Certification',
+      description: 'Practical knowledge of AI, LLMs, and responsible use in professional settings',
+    },
+    {
+      name: 'Intercultural Skills Certification',
+      description: 'Effective communication and collaboration with diverse teams',
+    },
   ],
 }
 

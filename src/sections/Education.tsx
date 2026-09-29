@@ -1,4 +1,4 @@
-import { ArrowUpRight, Award, GraduationCap, MapPin } from 'lucide-react'
+import { ArrowUpRight, Award, BookOpen, GraduationCap, MapPin } from 'lucide-react'
 import { education } from '../content'
 import styles from './sections.module.css'
 
@@ -9,12 +9,16 @@ export function Education() {
         {education.degrees.map((degree) => (
           <li key={`${degree.school}-${degree.degree}`} className={styles.entry}>
             <p className={styles.meta}>
-              <span>
-                {degree.start} – {degree.end}
-              </span>
+              <span>{degree.dates}</span>
               {degree.gpa && <span>GPA {degree.gpa}</span>}
             </p>
             <h3 className={styles.cardTitle}>{degree.degree}</h3>
+            {degree.minor && (
+              <p className={styles.iconLine}>
+                <BookOpen size={17} aria-hidden="true" />
+                Minor in {degree.minor}
+              </p>
+            )}
             <p className={styles.iconLine}>
               <GraduationCap size={17} aria-hidden="true" />
               {degree.school}
@@ -54,26 +58,28 @@ export function Education() {
             Certifications
           </h3>
           <ul className={styles.certs}>
-            {education.certifications.map((cert) => (
-              <li key={cert.name} className={styles.cert}>
-                <span className={styles.certIcon} aria-hidden="true">
-                  <Award size={20} />
-                </span>
-                <div className={styles.certText}>
-                  <p className={styles.certName}>{cert.name}</p>
-                  <p className={styles.muted}>
-                    {cert.issuer} · {cert.date}
-                  </p>
-                </div>
-                {cert.credentialUrl && (
-                  <a className="button button-small" href={cert.credentialUrl} target="_blank" rel="noreferrer">
-                    Verify
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                    <span className="sr-only">{cert.name} (opens in a new tab)</span>
-                  </a>
-                )}
-              </li>
-            ))}
+            {education.certifications.map((cert) => {
+              const issued = [cert.issuer, cert.date].filter(Boolean).join(' · ')
+              return (
+                <li key={cert.name} className={styles.cert}>
+                  <span className={styles.certIcon} aria-hidden="true">
+                    <Award size={20} />
+                  </span>
+                  <div className={styles.certText}>
+                    <p className={styles.certName}>{cert.name}</p>
+                    {cert.description && <p className={styles.muted}>{cert.description}</p>}
+                    {issued && <p className={styles.certIssued}>{issued}</p>}
+                  </div>
+                  {cert.credentialUrl && (
+                    <a className="button button-small" href={cert.credentialUrl} target="_blank" rel="noreferrer">
+                      Verify
+                      <ArrowUpRight size={16} aria-hidden="true" />
+                      <span className="sr-only">{cert.name} (opens in a new tab)</span>
+                    </a>
+                  )}
+                </li>
+              )
+            })}
           </ul>
         </section>
       )}
