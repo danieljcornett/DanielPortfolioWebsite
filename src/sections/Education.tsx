@@ -22,10 +22,7 @@ export function Education() {
       <ol className={styles.entries}>
         {education.degrees.map((degree) => (
           <li key={`${degree.school}-${degree.degree}`} className={styles.entry}>
-            <p className={styles.meta}>
-              {degree.dates}
-              {degree.gpa && ` · GPA ${degree.gpa}`}
-            </p>
+            <p className={styles.meta}>{degree.dates}</p>
             <h3 className={styles.cardTitle}>{degree.degree}</h3>
             {degree.minor && (
               <p className={styles.iconLine}>
@@ -62,6 +59,16 @@ export function Education() {
                   <li key={honor}>{honor}</li>
                 ))}
               </ul>
+            )}
+
+            {/* Kept at the bottom of the card rather than in its headline. */}
+            {degree.gpa && (
+              <div className={styles.subsection}>
+                <p className={styles.detailRow}>
+                  <span className={styles.courseCode}>GPA</span>
+                  <span>{degree.gpa}</span>
+                </p>
+              </div>
             )}
           </li>
         ))}
