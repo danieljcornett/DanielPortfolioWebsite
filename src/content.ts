@@ -108,9 +108,7 @@ export const projects: ProjectsContent = {
         'Used AI-assisted development (Cursor, Claude Code) to accelerate the web app build',
       ],
       tech: ['Python', 'Scikit-Learn', 'NLTK', 'FastAPI', 'React', 'Tailwind CSS', 'Vercel'],
-      // This is a deployment URL, which Vercel puts behind a login by default. Swap in the project's
-      // production domain (Vercel → project → Domains) or turn off Deployment Protection.
-      liveUrl: 'https://phishing-detection-system-using-machine-learning-5esgrh7tv.vercel.app/',
+      liveUrl: 'https://phishing-detection-system-using-mac.vercel.app/',
       // Add repoUrl to show a Code button.
     },
     {
