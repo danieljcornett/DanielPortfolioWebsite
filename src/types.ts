@@ -59,7 +59,10 @@ export interface AboutContent {
 
 export interface Project {
   title: string
-  year: string
+  /** Optional, e.g. "2026" */
+  year?: string
+  /** Optional label shown next to the year, e.g. "Personal project" or "Hackathon" */
+  category?: string
   summary: string
   highlights: string[]
   tech: string[]

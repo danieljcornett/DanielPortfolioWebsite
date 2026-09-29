@@ -18,10 +18,13 @@ export function Projects() {
           </div>
 
           <div className={styles.projectBody}>
-            <p className={styles.meta}>
-              <span>{project.year}</span>
-              {project.featured && <span className={styles.badge}>Featured</span>}
-            </p>
+            {(project.year || project.category || project.featured) && (
+              <p className={styles.meta}>
+                {project.year && <span>{project.year}</span>}
+                {project.category && <span>{project.category}</span>}
+                {project.featured && <span className={styles.badge}>Featured</span>}
+              </p>
+            )}
             <h3 className={styles.cardTitle}>{project.title}</h3>
             <p className={styles.summary}>{project.summary}</p>
 

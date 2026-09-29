@@ -92,44 +92,33 @@ export const about: AboutContent = {
 /* ── Planet 2: Projects ─────────────────────────────────────────────── */
 
 export const projects: ProjectsContent = {
-  intro: 'A few things I have designed, built, and shipped.',
+  intro: 'Machine learning and data projects I have built.',
   items: [
     {
-      title: 'Project One',
-      year: '2026',
+      title: 'Phishing Website Detection System',
       featured: true,
-      summary: 'One or two sentences on what this project does and the problem it solves.',
+      summary:
+        'A machine learning classifier that flags phishing URLs, served through a full-stack web app that can check a single link or every link in a pasted email.',
       highlights: [
-        'A measurable result, e.g. "Cut page load time by 40%"',
-        'The hardest technical problem you solved and how',
+        'Trained a logistic regression URL classifier on 500K+ labeled URLs using an NLTK tokenize-and-stem pipeline with bag-of-words features, achieving 96.5% accuracy, 96.5% precision, and 87.8% recall on a held-out test set',
+        'Built and deployed a full-stack web app (FastAPI backend, React/Tailwind frontend, hosted on Vercel) that scores a single URL or every link in a pasted email and shows which URL tokens drove each prediction',
+        'Reduced false positives with a trusted-domain allowlist that still flags lookalike domains, and capped request sizes to protect the hosted API',
+        'Used AI-assisted development (Cursor, Claude Code) to accelerate the web app build',
       ],
-      tech: ['TypeScript', 'React', 'Node.js', 'PostgreSQL'],
-      repoUrl: 'https://github.com/your-username/project-one',
-      liveUrl: 'https://example.com',
+      tech: ['Python', 'Scikit-Learn', 'NLTK', 'FastAPI', 'React', 'Tailwind CSS', 'Vercel'],
+      // Add repoUrl and liveUrl (the Vercel address) to show Code and Live demo buttons.
     },
     {
-      title: 'Project Two',
-      year: '2025',
-      summary: 'One or two sentences on what this project does and the problem it solves.',
-      highlights: ['A measurable result or a notable feature'],
-      tech: ['Python', 'FastAPI', 'Docker'],
-      repoUrl: 'https://github.com/your-username/project-two',
-    },
-    {
-      title: 'Project Three',
-      year: '2025',
-      summary: 'One or two sentences on what this project does and the problem it solves.',
-      highlights: ['A measurable result or a notable feature'],
-      tech: ['Go', 'gRPC', 'Redis'],
-      repoUrl: 'https://github.com/your-username/project-three',
-    },
-    {
-      title: 'Project Four',
-      year: '2024',
-      summary: 'One or two sentences on what this project does and the problem it solves.',
-      highlights: ['A measurable result or a notable feature'],
-      tech: ['Swift', 'SwiftUI'],
-      liveUrl: 'https://example.com',
+      title: 'Marketing Channel Performance & Budget Reallocation Analysis',
+      category: 'Personal project',
+      summary:
+        'A data analysis of marketing campaigns across five channels to find where the budget would earn the best return.',
+      highlights: [
+        'Analyzed marketing campaigns across 5 channels to evaluate ROI, conversion rate, and acquisition cost using Python (Pandas, Matplotlib, Seaborn) and SQL',
+        'Built channel- and segment-level comparisons across audience and location dimensions to uncover underperforming areas',
+        'Recommended reallocating investments toward top-performing channels and segments, projecting a lift in overall ROI',
+      ],
+      tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'SQL'],
     },
   ],
 }
