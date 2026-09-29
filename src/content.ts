@@ -25,8 +25,8 @@ export const profile: Profile = {
     { label: 'School', address: 'daniel-cornett@uiowa.edu' },
     { label: 'Personal', address: 'daniel12cornett@gmail.com' },
   ],
-  resumeUrl: '',
-  photo: '',
+  resumeUrl: '/Daniel_Cornett_Resume.pdf',
+  photo: '/daniel-cornett.webp',
   socials: [
     { label: 'GitHub', href: 'https://github.com/danieljcornett', icon: 'github', handle: '@danieljcornett' },
     {

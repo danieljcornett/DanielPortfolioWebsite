@@ -7,9 +7,16 @@ export function About() {
     <>
       <div className={styles.aboutIntro}>
         {profile.photo ? (
-          <img className={styles.portrait} src={profile.photo} alt={`Portrait of ${profile.name}`} />
+          <img
+            className={`${styles.portrait} ${styles.portraitPhoto}`}
+            src={profile.photo}
+            alt={`Portrait of ${profile.name}`}
+            width={120}
+            height={120}
+            decoding="async"
+          />
         ) : (
-          <div className={styles.portrait} role="img" aria-label="Photo placeholder">
+          <div className={`${styles.portrait} ${styles.portraitPlaceholder}`} role="img" aria-label="Photo placeholder">
             <span>{profile.initials}</span>
             <small>Your photo</small>
           </div>

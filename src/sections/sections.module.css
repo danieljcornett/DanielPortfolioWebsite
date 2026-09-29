@@ -107,26 +107,35 @@
 }
 
 .portrait {
+  width: 120px;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 28px;
+}
+
+.portraitPhoto {
+  object-fit: cover;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.8);
+}
+
+.portraitPlaceholder {
   display: grid;
   place-items: center;
   align-content: center;
   gap: 4px;
-  width: 120px;
-  aspect-ratio: 1;
-  border-radius: 28px;
-  object-fit: cover;
   border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
   background:
     radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
     var(--surface);
 }
 
-.portrait span {
+.portraitPlaceholder span {
   font: 600 2rem/1 var(--font-display);
   color: var(--text);
 }
 
-.portrait small {
+.portraitPlaceholder small {
   color: var(--text-faint);
   font: 500 10px/1 var(--font-mono);
   letter-spacing: 0.1em;
