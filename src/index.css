@@ -1,0 +1,225 @@
+:root {
+  color-scheme: dark;
+
+  --bg: #030409;
+  --text: #eef1f8;
+  --text-muted: #aab3c8;
+  --text-faint: #8a94ab;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-hover: rgba(255, 255, 255, 0.07);
+  --glass: rgba(8, 10, 18, 0.82);
+
+  --sun: #ffb45e;
+  --sun-soft: #ffd8a1;
+  /* Each planet's page overrides --accent with its own color. */
+  --accent: var(--sun);
+  --on-accent: #0b0d14;
+
+  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'DM Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Code', Menlo, monospace;
+
+  --radius: 16px;
+  --radius-lg: 24px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout. src/lib/layout.ts mirrors --panel-w, --gutter and --sheet-h for the camera. */
+  --gutter: 16px;
+  --header-h: 76px;
+  --panel-w: min(600px, 46vw);
+  --sheet-h: 64dvh;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 64px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background:
+    radial-gradient(120% 90% at 50% 45%, #0a0c1a 0%, var(--bg) 60%) fixed,
+    var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Buttons ── */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  font: 500 15px/1 var(--font-body);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s var(--ease-out);
+}
+
+.button:hover {
+  background: var(--surface-hover);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button-primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--sun-soft), var(--sun));
+  color: #1f1204;
+  box-shadow: 0 10px 30px -10px rgba(255, 160, 70, 0.6);
+}
+
+.button-primary:hover {
+  border-color: transparent;
+  background: linear-gradient(135deg, #ffe7c4, #ffc47f);
+  box-shadow: 0 12px 36px -10px rgba(255, 160, 70, 0.8);
+}
+
+.button-accent {
+  border-color: transparent;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.button-accent:hover {
+  border-color: transparent;
+  background: color-mix(in srgb, var(--accent) 82%, white);
+}
+
+.button-ghost {
+  background: rgba(8, 10, 18, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.button-small {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+@media (pointer: coarse) {
+  .button-small {
+    min-height: 44px;
+  }
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(8, 10, 18, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.icon-button:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,138 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 30;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: env(safe-area-inset-top) calc(var(--gutter) + 8px) 0;
+  pointer-events: none;
+}
+
+.header > * {
+  pointer-events: auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding-right: 10px;
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff4d6, #ffc46b 45%, #f07a24 100%);
+  box-shadow: 0 0 24px rgba(255, 170, 80, 0.45);
+  color: #2a1403;
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.02em;
+  transition: box-shadow 0.3s;
+}
+
+.brand:hover .mark {
+  box-shadow: 0 0 34px rgba(255, 170, 80, 0.7);
+}
+
+.name {
+  font: 600 16px/1 var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.list {
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(8, 10, 18, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 15px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font: 500 14px/1 var(--font-body);
+  text-decoration: none;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.link[aria-current='page'] {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+/* Phones: the section list becomes a dock along the bottom, hidden while a page is open. */
+@media (max-width: 767px) {
+  .nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    transition:
+      opacity 0.25s,
+      transform 0.35s var(--ease-out),
+      visibility 0s;
+  }
+
+  .header[data-section-open='true'] .nav {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition:
+      opacity 0.2s,
+      transform 0.3s var(--ease-out),
+      visibility 0s linear 0.3s;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 6px;
+    border-radius: 22px;
+  }
+
+  .link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    min-height: 54px;
+    padding: 6px 2px;
+    border-radius: 16px;
+    font-size: 12px;
+  }
+}

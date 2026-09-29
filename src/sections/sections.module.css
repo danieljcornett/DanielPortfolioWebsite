@@ -1,0 +1,435 @@
+/* Shared building blocks for the section pages. `--accent` comes from the open planet. */
+
+.label {
+  margin-bottom: 14px;
+  color: var(--text-faint);
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--text-faint);
+  font-size: 0.9375rem;
+}
+
+.chips,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9375rem;
+  line-height: 1.2;
+}
+
+.tags li {
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: color-mix(in srgb, var(--accent) 70%, white);
+  font: 500 12px/1.2 var(--font-mono);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-faint);
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  letter-spacing: 0.06em;
+}
+
+.cardTitle {
+  margin-top: 10px;
+  font-size: 1.375rem;
+  font-weight: 600;
+}
+
+.bullets {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.bullets li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ── About ── */
+
+.aboutIntro {
+  display: grid;
+  gap: 24px;
+}
+
+@container (min-width: 460px) {
+  .aboutIntro {
+    grid-template-columns: 120px 1fr;
+    align-items: start;
+  }
+}
+
+.portrait {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4px;
+  width: 120px;
+  aspect-ratio: 1;
+  border-radius: 28px;
+  object-fit: cover;
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
+    var(--surface);
+}
+
+.portrait span {
+  font: 600 2rem/1 var(--font-display);
+  color: var(--text);
+}
+
+.portrait small {
+  color: var(--text-faint);
+  font: 500 10px/1 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.prose {
+  display: grid;
+  gap: 14px;
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.fact {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.fact dt {
+  color: var(--text-faint);
+  font: 500 11px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fact dd {
+  margin: 8px 0 0;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ── Projects ── */
+
+.projects {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project {
+  display: grid;
+  gap: 18px;
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition:
+    border-color 0.25s,
+    background-color 0.25s;
+}
+
+.project:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.project[data-featured='true'] {
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--accent) 9%, transparent), var(--surface) 60%);
+}
+
+/* Wider pages: regular projects sit side by side with their screenshot; the featured one stays stacked. */
+@container (min-width: 480px) {
+  .project:not([data-featured='true']) {
+    grid-template-columns: 180px 1fr;
+    align-items: start;
+  }
+
+  .project:not([data-featured='true']) .projectMedia > * {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.shot {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.projectBody {
+  display: grid;
+  gap: 12px;
+  padding: 0 6px 6px;
+}
+
+.projectBody .cardTitle {
+  margin-top: -2px;
+}
+
+.summary {
+  color: var(--text-muted);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ── Skills ── */
+
+.skillGroups {
+  display: grid;
+  gap: 14px;
+}
+
+.skillGroup {
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* ── Education ── */
+
+.timeline {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.degree {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  padding: 20px 20px 20px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.degree::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--accent);
+}
+
+.iconLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.iconLine svg {
+  flex: none;
+  color: var(--accent);
+}
+
+.subsection {
+  margin-top: 10px;
+}
+
+.degree .bullets {
+  margin-top: 6px;
+}
+
+.certs {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cert {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.certIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+}
+
+.certText {
+  flex: 1;
+  min-width: 0;
+}
+
+.certName {
+  font-weight: 600;
+}
+
+/* ── Contact ── */
+
+.statement {
+  font: 600 clamp(1.5rem, 1.2rem + 1vw, 1.875rem) / 1.2 var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  margin-top: 12px;
+  max-width: 48ch;
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+}
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.socialCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socialCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.socialCard:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.socialIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.socialText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+}
+
+.socialText .muted {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.socialArrow {
+  flex: none;
+  color: var(--text-faint);
+  transition:
+    color 0.2s,
+    transform 0.2s var(--ease-out);
+}
+
+.socialCard:hover .socialArrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
+.note {
+  color: var(--text-faint);
+  font-size: 0.9375rem;
+}

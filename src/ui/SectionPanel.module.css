@@ -1,0 +1,192 @@
+.panel {
+  position: fixed;
+  z-index: 20;
+  top: var(--header-h);
+  right: var(--gutter);
+  bottom: var(--gutter);
+  width: var(--panel-w);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--glass);
+  box-shadow:
+    0 40px 100px -30px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+}
+
+/* A wash of the planet's color across the top of the page. */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 260px;
+  background: radial-gradient(90% 100% at 50% 0%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 70%);
+  pointer-events: none;
+}
+
+.panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 80%, transparent), transparent);
+  pointer-events: none;
+}
+
+.close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+}
+
+.scroller {
+  position: relative;
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 36px 36px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  container-type: inline-size;
+}
+
+.header {
+  padding: 30px 56px 0 0;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.planetDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 55%);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.title {
+  margin-top: 16px;
+  font-size: clamp(2.25rem, 1.6rem + 1.6vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+}
+
+.title:focus {
+  outline: none;
+}
+
+.intro {
+  margin-top: 10px;
+  max-width: 46ch;
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 44px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.pagerLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: 600 16px/1.2 var(--font-display);
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+.pagerLink:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.pagerLink small {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-faint);
+  font: 500 11px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pagerLink svg {
+  flex: none;
+  color: var(--accent);
+}
+
+.pagerNext {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Phones: the page becomes a bottom sheet with the planet visible above it. */
+@media (max-width: 767px) {
+  .panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: var(--sheet-h);
+    border-bottom: 0;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .close {
+    top: 14px;
+    right: 14px;
+  }
+
+  .scroller {
+    padding: 0 20px calc(28px + env(safe-area-inset-bottom));
+  }
+
+  .header {
+    padding-top: 24px;
+  }
+
+  .title {
+    margin-top: 12px;
+    font-size: 2rem;
+  }
+
+  .body {
+    gap: 28px;
+    margin-top: 24px;
+  }
+}
