@@ -11,7 +11,13 @@ export function Projects() {
         <li key={project.title} className={styles.project} data-featured={project.featured ?? false}>
           <div className={styles.projectMedia}>
             {project.image ? (
-              <img className={styles.shot} src={project.image} alt={`Screenshot of ${project.title}`} loading="lazy" />
+              <img
+                className={styles.shot}
+                src={project.image}
+                alt={project.imageAlt ?? `Screenshot of ${project.title}`}
+                loading="lazy"
+                decoding="async"
+              />
             ) : (
               <ImagePlaceholder label="Screenshot" />
             )}

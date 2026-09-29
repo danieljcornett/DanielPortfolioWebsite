@@ -109,7 +109,10 @@ export const projects: ProjectsContent = {
       ],
       tech: ['Python', 'Scikit-Learn', 'NLTK', 'FastAPI', 'React', 'Tailwind CSS', 'Vercel'],
       liveUrl: 'https://phishing-detection-system-using-mac.vercel.app/',
-      // Add repoUrl to show a Code button.
+      repoUrl: 'https://github.com/danieljcornett/Phishing-Website-Detection-System-Using-Machine-Learning',
+      image: '/projects/phishing-detection.webp',
+      imageAlt:
+        'The Anti-Phishing Detection app flagging a lookalike Amazon refund link as likely phishing at 85.6%, with the URL words that drove the score',
     },
     {
       title: 'Marketing Channel Performance & Budget Reallocation Analysis',

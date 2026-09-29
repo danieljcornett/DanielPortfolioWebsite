@@ -77,6 +77,8 @@ export interface Project {
   liveUrl?: string
   /** Screenshot in /public, e.g. '/projects/project-one.png'. A placeholder shows until you add one. */
   image?: string
+  /** What the screenshot shows, for screen readers. Defaults to "Screenshot of <title>". */
+  imageAlt?: string
   featured?: boolean
 }
 
