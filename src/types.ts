@@ -95,6 +95,12 @@ export interface SkillsContent {
   groups: SkillGroup[]
 }
 
+export interface Course {
+  /** e.g. "CS 3330" */
+  code: string
+  name: string
+}
+
 export interface Degree {
   school: string
   degree: string
@@ -104,8 +110,10 @@ export interface Degree {
   /** Free text, e.g. "2023 – 2027" or "Expected May 2027" */
   dates: string
   gpa?: string
-  /** Leave empty to hide the "Relevant coursework" group */
-  coursework: string[]
+  /** Completed courses worth highlighting. Leave empty to hide the group. */
+  coursework: Course[]
+  /** Courses in progress this term. Leave empty to hide the group. */
+  currentCoursework: Course[]
   honors: string[]
 }
 

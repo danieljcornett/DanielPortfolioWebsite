@@ -1,6 +1,20 @@
 import { ArrowUpRight, Award, BookOpen, GraduationCap, MapPin } from 'lucide-react'
 import { education } from '../content'
+import type { Course } from '../types'
 import styles from './sections.module.css'
+
+function CourseList({ courses }: { courses: Course[] }) {
+  return (
+    <ul className={styles.courses}>
+      {courses.map((course) => (
+        <li key={course.code}>
+          <span className={styles.courseCode}>{course.code}</span>
+          <span>{course.name}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export function Education() {
   return (
@@ -9,8 +23,8 @@ export function Education() {
         {education.degrees.map((degree) => (
           <li key={`${degree.school}-${degree.degree}`} className={styles.entry}>
             <p className={styles.meta}>
-              <span>{degree.dates}</span>
-              {degree.gpa && <span>GPA {degree.gpa}</span>}
+              {degree.dates}
+              {degree.gpa && ` · GPA ${degree.gpa}`}
             </p>
             <h3 className={styles.cardTitle}>{degree.degree}</h3>
             {degree.minor && (
@@ -31,13 +45,14 @@ export function Education() {
             {degree.coursework.length > 0 && (
               <div className={styles.subsection}>
                 <h4 className={styles.label}>Relevant coursework</h4>
-                <ul className={styles.chips}>
-                  {degree.coursework.map((course) => (
-                    <li key={course} className={styles.chip}>
-                      {course}
-                    </li>
-                  ))}
-                </ul>
+                <CourseList courses={degree.coursework} />
+              </div>
+            )}
+
+            {degree.currentCoursework.length > 0 && (
+              <div className={styles.subsection}>
+                <h4 className={styles.label}>Currently taking</h4>
+                <CourseList courses={degree.currentCoursework} />
               </div>
             )}
 

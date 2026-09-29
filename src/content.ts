@@ -154,8 +154,19 @@ export const education: EducationContent = {
       minor: 'Artificial Intelligence',
       location: 'Iowa City, IA',
       dates: 'Expected May 2027',
-      // Not on the résumé yet: add a GPA, relevant courses, or honors and they show up automatically.
-      coursework: [],
+      gpa: '2.8',
+      coursework: [
+        { code: 'CS 3330', name: 'Algorithms' },
+        { code: 'ECE 5995', name: 'GAIT: Generative AI Tools' },
+        { code: 'CS 3820', name: 'Programming Language Concepts' },
+        { code: 'CS 2230', name: 'Computer Science II: Data Structures' },
+        { code: 'ENGR 3110', name: 'Intro to AI and Machine Learning' },
+      ],
+      currentCoursework: [
+        { code: 'ECE 5845', name: 'Modern Databases' },
+        { code: 'ECE 5200', name: 'Machine Learning' },
+      ],
+      // Add honors (e.g. "Dean's List, Fall 2025") and they show up as bullets.
       honors: [],
     },
   ],
