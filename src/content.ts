@@ -1,6 +1,6 @@
 /**
  * Everything visitors read lives in this file.
- * Replace the placeholder text one section at a time; the layout adapts to whatever you put here.
+ * Edit any section here; the layout adapts to whatever you put in (empty optional fields are hidden).
  * (Also update the <title> and meta description in index.html so link previews match.)
  */
 import type {
@@ -125,6 +125,7 @@ export const projects: ProjectsContent = {
         'Recommended reallocating investments toward top-performing channels and segments, projecting a lift in overall ROI',
       ],
       tech: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'SQL'],
+      repoUrl: 'https://github.com/danieljcornett/AdRevenueDataProject',
     },
   ],
 }

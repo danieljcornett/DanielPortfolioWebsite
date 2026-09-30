@@ -1,16 +1,20 @@
 import { ArrowUpRight } from 'lucide-react'
 import { projects } from '../content'
 import { GithubIcon } from '../ui/icons'
-import { ImagePlaceholder } from '../ui/ImagePlaceholder'
 import styles from './sections.module.css'
 
 export function Projects() {
   return (
     <ul className={styles.projects}>
       {projects.items.map((project) => (
-        <li key={project.title} className={styles.project} data-featured={project.featured ?? false}>
-          <div className={styles.projectMedia}>
-            {project.image ? (
+        <li
+          key={project.title}
+          className={styles.project}
+          data-featured={project.featured ?? false}
+          data-media={Boolean(project.image)}
+        >
+          {project.image && (
+            <div className={styles.projectMedia}>
               <img
                 className={styles.shot}
                 src={project.image}
@@ -18,10 +22,8 @@ export function Projects() {
                 loading="lazy"
                 decoding="async"
               />
-            ) : (
-              <ImagePlaceholder label="Screenshot" />
-            )}
-          </div>
+            </div>
+          )}
 
           <div className={styles.projectBody}>
             {(project.year || project.category || project.featured) && (

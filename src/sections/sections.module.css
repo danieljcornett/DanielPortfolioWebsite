@@ -211,7 +211,7 @@
 
 /* Wider pages: regular projects sit side by side with their screenshot; the featured one stays stacked. */
 @container (min-width: 480px) {
-  .project:not([data-featured='true']) {
+  .project[data-media='true']:not([data-featured='true']) {
     grid-template-columns: 180px 1fr;
     align-items: start;
   }
@@ -219,6 +219,11 @@
   .project:not([data-featured='true']) .projectMedia > * {
     aspect-ratio: 4 / 3;
   }
+}
+
+/* Projects without a screenshot are text-only cards. */
+.project[data-media='false'] .projectBody {
+  padding-top: 6px;
 }
 
 .shot {
